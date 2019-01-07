@@ -1,8 +1,10 @@
-/* Exercise 1-3. Modify the temperature conversion program to print a heading
- * above the table.
+/* Exercise 1.15. Rewrite the temperature conversion program of Section 1.2 to
+ * use a function for conversion.
  */
 
 #include <stdio.h>
+
+int convert(int fahr);
 
 int main()
 {
@@ -16,10 +18,15 @@ int main()
 	printf("The Fahrenheit-Celsius table for common values\n");
 
 	while (fahr <= upper) {
-		celsius = 5 * (fahr - 32) / 9;
+		celsius = convert(fahr);
 		printf("%d\t%d\n", fahr, celsius);
 		fahr = fahr + step;
 	}
 
 	return 0;
+}
+
+int convert(int fahr)
+{
+	return 5 * (fahr - 32) / 9;
 }

@@ -1,8 +1,10 @@
 /* Exercise 1-2. Experiment to find out what happens when prints's argument
  * string contains \c, where c is some character not listed above.
  */
+
 /* This question is way too exploratory, so I have tested only a few characters.
  */
+
 #include <stdio.h>
 
 int main()

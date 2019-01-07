@@ -8,12 +8,12 @@
  * Boundary is like "" or "\n" or " ". (works).
  * Invalid would be a stream without EOF or Unicode characters (works).
  */
+
 #include <stdio.h>
 
 #define IN 1  /* inside a word */
 #define OUT 0 /* outside a word */
 
-/* count lines, words, and characters in input */
 int main()
 {
 	int c, nl, nw, nc, state;
