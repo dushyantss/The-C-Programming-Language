@@ -1,5 +1,5 @@
 # The-C-Programming-Language
-K&amp;R The C Programming Language, Second Edition Solutions
+K&amp;R The C Programming Language, Second Edition -- Solutions
 
 C Standard is C89 aka ANSI C.
 
