@@ -3,11 +3,12 @@
 
 int main()
 {
-  /* We can do this either using the same program as the book, but all we have
-     to test is that booleans are represented as 1 and 0 in C. So, I'll directly
-     check that. */
-  printf("true is equal to %d\n", 1 == 1);  /* true is equal to 1 */
-  printf("false is equal to %d\n", 1 == 2); /* false is equal to 0 */
+	/* We can do this using the same program as the book, but all we
+	 * have to test is that booleans are represented as 1 and 0 in C. So,
+	 * I'll check that directly.
+	 */
+	printf("true is equal to %d\n", 1 == 1);  /* true is equal to 1 */
+	printf("false is equal to %d\n", 1 == 2); /* false is equal to 0 */
 
-  return 0;
+	return 0;
 }

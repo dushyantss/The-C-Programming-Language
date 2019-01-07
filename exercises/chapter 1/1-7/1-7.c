@@ -3,7 +3,7 @@
 
 int main()
 {
-  printf("EOF is equal to %d\n", EOF);
+	printf("EOF is equal to %d\n", EOF);
 
-  return 0;
+	return 0;
 }
