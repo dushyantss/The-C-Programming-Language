@@ -1,6 +1,6 @@
 #include <stdio.h>
 /* print Celsius-Fahrenheit table for celsius = 0, 10, ..., 100 */
-int main(int argc, char const *argv[])
+int main()
 {
   int fahr, celsius;
   int lower, upper, step;
