@@ -1,7 +1,7 @@
 # The-C-Programming-Language
-K&amp;R C, Second Edition Solutions
+K&amp;R The C Programming Language, Second Edition Solutions
 
-C Standard is C89.
+C Standard is C89 aka ANSI C.
 
 Formatting style is Linux Kernel style.
 
