@@ -16,12 +16,12 @@ void clear_trail(char line[], int len);
 
 int main()
 {
-	int len;	       /* current line length */
-	char line[MAXLINE];    /* current input line */
+	int len;	    /* current line length */
+	char line[MAXLINE]; /* current input line */
 	while ((len = my_getline(line, MAXLINE)) > 0) {
 		clear_trail(line, len);
-    if (line[0] != '\0' && line[0] != '\n')
-      printf("%s", line);
+		if (line[0] != '\0' && line[0] != '\n')
+			printf("%s", line);
 	}
 
 	return 0;
@@ -45,15 +45,15 @@ int my_getline(char s[], int lim)
 /* clear_trail: remove trailing blanks and tabs from the given line */
 void clear_trail(char line[], int len)
 {
-  if (len == MAXLINE - 1 && line[MAXLINE - 2] != '\n') { /* line is longer than maxline */
-    while (len >= 0 && (line[len] == ' ' || line[len] == '\t')) {
-      line[len] = '\0';
-      len--;
-    }
-  } else { /* line is within MAXLINE, we can just check past the \n */
-    for (len = len - 2; len >= 0 && (line[len] == ' ' || line[len] == '\t'); len--) {
-      line[len] = '\0';
-    }
-    line[len + 1] = '\n';
-  }
+	if (len == MAXLINE - 1 && line[MAXLINE - 2] != '\n') { /* line is longer than maxline */
+		for (len--; len >= 0 && (line[len] == ' ' || line[len] == '\t'); len--) {
+			line[len] = '\0';
+		}
+
+	} else { /* line is within MAXLINE, we can just check past the \n */
+		for (len = len - 2; len >= 0 && (line[len] == ' ' || line[len] == '\t'); len--) {
+			line[len] = '\0';
+		}
+		line[len + 1] = '\n';
+	}
 }
