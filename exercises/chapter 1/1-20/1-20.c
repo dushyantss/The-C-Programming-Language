@@ -3,17 +3,30 @@
  * every n columns. Should n be a variable or a symbolic parameter?
  */
 
+/* To understand this question, we have to understand the basics of tab stops in
+ * typography. Tab stops are particular stops on the display and tab keys take
+ * us to those spots when pressed. Tab key does not equal a fix number of
+ * whitespaces, instead their sole job is to take the cursor to that particular
+ * spot on the screen. e.g. in this program, we will be using fixed tab stops
+ * every COLUMNS(8) columns(Here columns and characters are interchangeable).
+ * So, a tab stop every 8 columns means that if the cursor is anywhere from col1 
+ * (index starts from 1) to col8 and press tab, we are taken to col9.
+ * 
+ * Another important thing is that tabs are reset on each newline.
+ */
+
 #include <stdio.h>
 
-#define COLUMNS 2
+#define COLUMNS 8
 
-int i;
+int i, j;
 
 void detab(int c);
 
 int main(void)
 {
 	int c;
+	i = 0;
 	while ((c = getchar()) != EOF)
 		detab(c);
 
@@ -22,9 +35,16 @@ int main(void)
 
 void detab(int c)
 {
-	if (c != '\t')
+	if (c != '\t' && c != '\n') {
 		putchar(c);
-	else
-		for (i = 0; i < COLUMNS; i++)
+		i++;
+		i %= COLUMNS;
+	} else if (c == '\n') {
+		putchar(c);
+		i = 0;
+	} else {
+		for (j = 0; j < COLUMNS - i; j++)
 			putchar(' ');
+		i = 0;
+	}
 }
