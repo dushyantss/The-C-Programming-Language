@@ -1,6 +1,7 @@
-/* Write a program detab that replaces tabs in the input with the proper number 
- * of blanks to space to the next tab stop. Assume a fixed set of tab stops, say
- * every n columns. Should n be a variable or a symbolic parameter?
+/* Write a program entab that replaces strings of blanks by the minimum number 
+ * of tabs and blanks to achieve the same spacing. Use the same tab stops as for
+ * entab. When either a tab or a single blank would suffice to reach a tab stop,
+ * which should be given preference?
  */
 
 /* To understand this question, we have to understand the basics of tab stops in
@@ -20,31 +21,40 @@
 #define COLUMNS 8
 
 int i, j;
+int store[COLUMNS];
 
-void detab(int c);
+void entab(int c);
 
 int main(void)
 {
 	int c;
 	i = 0;
 	while ((c = getchar()) != EOF)
-		detab(c);
+		entab(c);
 
 	return 0;
 }
 
-void detab(int c)
+void entab(int c)
 {
-	if (c != '\t' && c != '\n') {
+	if (c == '\n' || c == '\t') {
+		putchar(c);
+		i = 0;
+	} else if (c != ' ') {
 		putchar(c);
 		i++;
 		i %= COLUMNS;
-	} else if (c == '\n') {
-		putchar(c);
-		i = 0;
 	} else {
-		for (j = 0; j < COLUMNS - i; j++)
-			putchar(' ');
+		store[0] = ' ';
+		for (j = 1; j < COLUMNS - i && c == ' '; j++) {
+			c = getchar();
+			store[j] = c;
+		}
+		if (c == ' ' || c == '\t')
+			putchar('\t');
+		else
+			for (i = 0; i < j; i++)
+				putchar(store[i]);
 		i = 0;
 	}
 }
