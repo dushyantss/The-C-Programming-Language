@@ -25,4 +25,6 @@ int main(void)
 			last = c;
 		}
 	}
+
+	return 0;
 }
