@@ -20,7 +20,6 @@ int main(void)
 	char *line = NULL;
 	char *split;
 	int len;
-	unsigned long i;
 	while ((len = getline(&line, &max, stdin)) > 0) {
 		split = strtok(line, " ");
 		x = strtoul(split, NULL, 2);
