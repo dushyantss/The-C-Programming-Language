@@ -6,6 +6,5 @@ int main()
 
 	while ((c = getchar()) != EOF) {
 		putchar(c);
-    c = getchar();
 	}
 }
