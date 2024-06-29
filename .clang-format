@@ -1,1 +1,8 @@
 BasedOnStyle: Chromium
+# This will disable arguments being packed on one line instead of one per line
+BinPackArguments: false
+BinPackParameters: false
+ExperimentalAutoDetectBinPacking: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AlignOperands: Align
+AlignAfterOpenBracket: AlwaysBreak
