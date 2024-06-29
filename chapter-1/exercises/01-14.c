@@ -2,29 +2,28 @@
 
 #define ASCII_LIMIT 128
 
-int main()
-{
-	int c;
-	int nchars[ASCII_LIMIT];
+int main() {
+  int c;
+  int nchars[ASCII_LIMIT];
 
-	for (int i = 0; i < ASCII_LIMIT; ++i) {
-		nchars[i] = 0;
-	}
+  for (int i = 0; i < ASCII_LIMIT; ++i) {
+    nchars[i] = 0;
+  }
 
-	while ((c = getchar()) != EOF) {
+  while ((c = getchar()) != EOF) {
     ++nchars[c];
-	}
+  }
 
-	// Horizontal histogram
+  // Horizontal histogram
   printf("\n\n");
   printf("Horizontal histogram of frequency of characters\n");
-	for (int i = 0; i < ASCII_LIMIT; ++i) {
-		printf("%c | ", i);
-		for (int j = 0; j < nchars[i]; ++j) {
-			printf("*");
-		}
-		printf("\n");
-	}
+  for (int i = 0; i < ASCII_LIMIT; ++i) {
+    printf("%c | ", i);
+    for (int j = 0; j < nchars[i]; ++j) {
+      printf("*");
+    }
+    printf("\n");
+  }
 
   // Vertical histogram
   printf("\n\n");

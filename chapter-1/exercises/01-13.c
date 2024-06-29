@@ -3,50 +3,49 @@
 #define IN 1  /* inside a word */
 #define OUT 0 /* outside a word */
 
-int main()
-{
-	int c, chars, state;
-	int nchars[10];
+int main() {
+  int c, chars, state;
+  int nchars[10];
 
-	for (int i = 0; i < 10; ++i) {
-		nchars[i] = 0;
-	}
+  for (int i = 0; i < 10; ++i) {
+    nchars[i] = 0;
+  }
 
-	state = OUT;
-	chars = 0;
-	while ((c = getchar()) != EOF) {
-		if (c == ' ' || c == '\n' || c == '\t') {
-			if (state == IN) {
-				if (chars >= 10) {
-					++nchars[9];
-				} else {
-					++nchars[chars - 1];
-				}
-			}
-			state = OUT;
-		} else if (state == OUT) {
-			chars = 1;
-			state = IN;
-		} else {
-			++chars;
-		}
-	}
+  state = OUT;
+  chars = 0;
+  while ((c = getchar()) != EOF) {
+    if (c == ' ' || c == '\n' || c == '\t') {
+      if (state == IN) {
+        if (chars >= 10) {
+          ++nchars[9];
+        } else {
+          ++nchars[chars - 1];
+        }
+      }
+      state = OUT;
+    } else if (state == OUT) {
+      chars = 1;
+      state = IN;
+    } else {
+      ++chars;
+    }
+  }
 
-	// Horizontal histogram
+  // Horizontal histogram
   printf("\n\n");
   printf("Horizontal histogram of lengths of words\n");
-	for (int i = 0; i < 9; ++i) {
-		printf("%3d | ", i + 1);
-		for (int j = 0; j < nchars[i]; ++j) {
-			printf("*");
-		}
-		printf("\n");
-	}
-	printf("10+ | ");
-	for (int j = 0; j < nchars[9]; ++j) {
-		printf("*");
-	}
-	printf("\n");
+  for (int i = 0; i < 9; ++i) {
+    printf("%3d | ", i + 1);
+    for (int j = 0; j < nchars[i]; ++j) {
+      printf("*");
+    }
+    printf("\n");
+  }
+  printf("10+ | ");
+  for (int j = 0; j < nchars[9]; ++j) {
+    printf("*");
+  }
+  printf("\n");
 
   // Vertical histogram
   printf("\n\n");
